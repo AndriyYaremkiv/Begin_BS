@@ -8,7 +8,7 @@ using System.Web.Routing;
 using BookStore.Models;
 using System.Data.Entity;
 
-namespace Begin_BS
+namespace BookStore
 {
     public class MvcApplication : System.Web.HttpApplication
     {

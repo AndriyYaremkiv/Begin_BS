@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Begin_BS
+namespace BookStore
 {
     public class FilterConfig
     {
