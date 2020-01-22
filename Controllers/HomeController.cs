@@ -37,7 +37,7 @@ namespace BookStore.Controllers
             db.Purchases.Add(purchase);
             // сохраняем в бд все изменения
             db.SaveChanges();
-            return "Дякуємо, " + purchase.Person + ", за покупку!";
+            return purchase.Person + " , дякуємо за покупку!";
         }
     }
 }
