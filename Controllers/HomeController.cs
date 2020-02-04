@@ -13,7 +13,13 @@ namespace BookStore.Controllers
         // создаем контекст данных
         BookContext db = new BookContext();
 
-        public ActionResult Index()
+        public ActionResult Index()     //звичайний синхронний метод
+        /*
+        //асинхронний метод, повинен повертати об'єтк типу Task     -- !!!
+        // IIS - пул потоків 2000-5000
+        //+ using System.Threading.Tasks        // need add namespace
+        public async Task<ActionResult> BookList()     
+        */
         {
             // получаем из бд все объекты Book
             IEnumerable<Book> books = db.Books;
