@@ -22,12 +22,20 @@ namespace BookStore.Controllers
         */
         {
             // получаем из бд все объекты Book
-            IEnumerable<Book> books = db.Books;
+            //IEnumerable<Book> books = db.Books;
+            var books = db.Books;
             // передаем все объекты в динамическое свойство Books в ViewBag
-            ViewBag.Books = books;
+            //ViewBag.Books = books;
             // возвращаем представление
             //return View();        //replaced by next line to check new view
-            return View("~/Views/Some/SomeView.cshtml");
+            //return View("~/Views/Some/SomeView.cshtml");
+            return View(books);      //return values not using ViewBag
+
+        }
+        public ActionResult BookIndex()     //звичайний синхронний метод
+        {
+            var books = db.Books;
+            return View(books);     
         }
 
         [HttpGet]
