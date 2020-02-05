@@ -25,6 +25,10 @@
     </table>
 </div>
 
+@*@Html.Partial("GetList", new string[] {"USA","UK","Spain","Italy"})*@ @*звертається до представлення GetList*@
+@Html.Action("GetList")  @*звертається до методу GetList*@
+@*@{Html.RenderPartial("GetList");} *@  @*метод в якості параметру приймає назву представлення*@
+
 @section Footer {
     Всі права захищені. 2020.
 }

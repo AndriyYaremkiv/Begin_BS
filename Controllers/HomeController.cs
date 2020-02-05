@@ -29,6 +29,7 @@ namespace BookStore.Controllers
             // возвращаем представление
             //return View();        //replaced by next line to check new view
             //return View("~/Views/Some/SomeView.cshtml");
+            ViewBag.Message = "Це часткове представлення";
             return View(books);      //return values not using ViewBag
 
         }
@@ -36,6 +37,11 @@ namespace BookStore.Controllers
         {
             var books = db.Books;
             return View(books);     
+        }
+        public ActionResult GetList()     //звичайний синхронний метод
+        {
+            string[] states = new string[] { "USA", "UK", "Spain", "Italy" };
+            return PartialView(states);
         }
 
         [HttpGet]
