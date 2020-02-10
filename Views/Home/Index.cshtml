@@ -36,9 +36,30 @@
         }
     </ul>
 }
-<h3>Список книг</h3>
-@BookList(Model)
-
+@*4.6 Робота з формами*@
+@using (Html.BeginForm("GetForm", "Home", FormMethod.Post))
+{
+    @Html.DropDownList("author", ViewBag.Authors as SelectList)
+    @*
+    @Html.CheckBox("set", false) <span>Включити</span>
+    *@
+    @*
+        @Html.RadioButton("color", "red")
+        <span>Червоний</span>
+        <br />
+        @Html.RadioButton("color", "blue")
+        <span>Синій</span>
+        <br />
+        @Html.RadioButton("color", "green", true)
+        <span>Зелений</span>
+    *@
+    @* @Html.TextArea("text","Привіт світ!",5,50,null) *@
+    <input type="submit" value="Send" />
+}
+@*
+    <h3>Список книг</h3>
+    @BookList(Model)
+*@
 
 @*HERLEPR - 2*@
 @helper CreateList(string[] all)
@@ -62,19 +83,19 @@
 @ListHelper.CreateList(Html, countries)
 
 @*
-<h3>Міста</h3>
-@CreateList(cities)
-<br />
-<h3>Та країни</h3> 
-@CreateList(countries)  *@   @*багаторазове використання хелпера CreateList*@
+    <h3>Міста</h3>
+    @CreateList(cities)
+    <br />
+    <h3>Та країни</h3>
+    @CreateList(countries)  *@   @*багаторазове використання хелпера CreateList*@
 
 
 
-@*PARTIAL VIEWS*@
-@*@Html.Partial("GetList", new string[] {"USA","UK","Spain","Italy"})*@ @*звертається до представлення GetList*@
-@Html.Action("GetList")  @*звертається до методу GetList*@
-@*@{Html.RenderPartial("GetList");} *@  @*метод в якості параметру приймає назву представлення*@
+    @*PARTIAL VIEWS*@
+    @*@Html.Partial("GetList", new string[] {"USA","UK","Spain","Italy"})*@ @*звертається до представлення GetList*@
+    @Html.Action("GetList")  @*звертається до методу GetList*@
+    @*@{Html.RenderPartial("GetList");} *@  @*метод в якості параметру приймає назву представлення*@
 
-@section Footer {
-    Всі права захищені. 2020.
-}
+    @section Footer {
+        Всі права захищені. 2020.
+    }

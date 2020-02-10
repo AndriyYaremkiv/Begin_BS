@@ -1,23 +1,29 @@
-﻿@{
+﻿@*
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+*@
+@{ 
+    ViewBag.Title = "Покупка книг";
+}
 
-<div>
-    <h3>Форма оформлення покупки</h3>
-    <form method="post" action="">
-        <input type="hidden" value="@ViewBag.BookId" name="BookId" />
-        <table>
-            <tr>
-                <td><p>Введіть ім'я: </p></td>
-                <td><input type="text" name="Person" /> </td>
-            </tr>
-            <tr>
-                <td><p>Введіть адресу:</p></td>
-                <td>
-                    <input type="text" name="Address" />
-                </td>
-            </tr>
-            <tr><td><input type="submit" value="Відправити" /> </td><td></td></tr>
-        </table>
-    </form>
-</div>
+    <div>
+        <h3>Форма оформлення покупки</h3>
+        @using (Html.BeginForm("Buy","Home", FormMethod.Post))        // параметри: метод, контроллер, тип запиту; 
+        {
+            @*<input type="hidden" value="@ViewBag.BookId" name="BookId" />*@
+            @Html.Hidden("BookId", ViewBag.BookId as string)
+            <table>
+                <tr>
+                    <td><p>@Html.Label("Person", "Введіть ім'я")</p></td>
+                    <td>@Html.TextBox("Person", "Введіть ім'я")</td>
+                </tr>
+                <tr>
+                    <td><p>@Html.Label("Address", "Введіть адресу")</p></td>
+                    <td>@Html.TextBox("Address", "Введіть адресу")</td>
+                </tr>
+                <tr><td><input type="submit" value="Відправити" /> </td><td></td></tr>
+            </table>
+
+        }
+    </div>

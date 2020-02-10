@@ -29,10 +29,27 @@ namespace BookStore.Controllers
             // возвращаем представление
             //return View();        //replaced by next line to check new view
             //return View("~/Views/Some/SomeView.cshtml");
+
+            SelectList authors = new SelectList(db.Books, "Author", "Name");    //<4.6 Робота з формами>
+            ViewBag.Authors = authors;
+
             ViewBag.Message = "Це часткове представлення";
             return View(books);      //return values not using ViewBag
 
         }
+        //<4.6 Робота з формами>
+        [HttpPost]
+        //public string GetForm(string text)  // для @Html.TextArea 
+        //public string GetForm(string color) // для @Html.RadioButton 
+        //public string GetForm(bool set)     // для @Html.CheckBox 
+        public string GetForm(string author)  // для @Html.DropDownList 
+        {
+            //return text;              // для @Html.TextArea 
+            //return color;             // для @Html.RadioButton
+            //return set.ToString();    // для @Html.CheckBox
+            return author;              // для @Html.DropDownList
+        }
+        //<\4.6 Робота з формами>
         public ActionResult BookIndex()     //звичайний синхронний метод
         {
             var books = db.Books;
