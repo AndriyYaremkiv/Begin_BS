@@ -37,6 +37,16 @@ namespace BookStore.Controllers
             return View(books);      //return values not using ViewBag
 
         }
+        //<5.2 Шаблонні хелпери>
+        ///*
+        public ActionResult GetBook(int id)     //звичайний синхронний метод
+        {
+            Book b = db.Books.Find(id);
+            if (b == null)
+                return HttpNotFound();
+            return View(b);
+        }
+        //*/
         //<4.6 Робота з формами>
         [HttpPost]
         //public string GetForm(string text)  // для @Html.TextArea 

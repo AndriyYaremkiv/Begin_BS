@@ -1,0 +1,26 @@
+﻿@*строготипізоване представлення бо використовуємо директиву @model, яка визначає
+    модель (BookStore.Models.Book), що використовує представлення.
+    Дане представлення буде виводити значення властивостей переданої книги  - <5.2>.
+    Клас Book має такі властивості: Id, Name, Author, Price
+    -----------------------------
+    Для перевірки запустити Deploy для GetBook.cshtml --> після виведення повідомлення про помилку до дати індекс книги:
+    http://localhost:57996/Home/GetBook  -- >  http://localhost:57996/Home/GetBook/1
+*@
+@model BookStore.Models.Book
+@{
+    ViewBag.Title = "GetBook";
+}
+
+@*вивід властивостей (як попередні) зі строготипізованими хелперами*@
+<h2>GetBook</h2>
+@*
+@Html.Display("Name") <br />
+@Html.Display("Author") <br />
+@Html.Display("Price") <br />
+*@
+@*
+@Html.DisplayFor(m => m.Name) <br />
+@Html.DisplayFor(m => m.Author)<br />
+@Html.DisplayFor(m => m.Price)<br />
+*@
+@Html.DisplayForModel()<br />

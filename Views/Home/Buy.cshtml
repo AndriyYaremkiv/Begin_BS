@@ -15,15 +15,15 @@
             @*<input type="hidden" value="@ViewBag.BookId" name="BookId" />*@
             @* @Html.Hidden("BookId", ViewBag.BookId as string) *@
             @* @Html.Hidden("BookId", Model.BookId)             // строго типізована в'юшка *@
-            @Html.HiddenFor(m=>m.BookId)                        // строго типізований хелпер
+            @Html.EditorFor(m=>m.BookId)                        // строго типізований хелпер
             <table>
                 <tr>
                     <td><p>@Html.LabelFor(m=>m.Person, "Введіть ім'я")</p></td>
-                    <td>@Html.TextBoxFor(m=>m.Person)</td>
+                    <td>@Html.EditorFor(m=>m.Person)</td>
                 </tr>
                 <tr>
                     <td><p>@Html.Label("Address", "Введіть адресу")</p></td>
-                    <td>@Html.TextBox("Address", "Введіть адресу")</td>
+                    <td>@Html.EditorFor(m=>m.Address)</td>
                 </tr>
                 <tr><td><input type="submit" value="Відправити" /> </td><td></td></tr>
             </table>
